@@ -1,5 +1,7 @@
 #include "handler.h"
-
+int buffer_max_size;
+int num_threads;
+int buffer_size;
 int main()
 {
     num_threads = DEFAULT_THREADS;
@@ -14,11 +16,9 @@ int main()
     {
         printf("Could not create socket");
     }
-    while(1)
-    {
     struct sockaddr_in addrport, client; // defined by c socket api
     addrport.sin_family = AF_INET;
-    addrport.sin_port = htons(8888); // port number
+    addrport.sin_port = htons(8880); // port number
     addrport.sin_addr.s_addr = htonl(INADDR_ANY);
 
     if (bind(socket_desc, (struct sockaddr *)&addrport, sizeof(addrport)) < 0) // reserver the port for socket
@@ -27,26 +27,20 @@ int main()
         return 1;
     }
     puts("bind done");
-
-    int l_status = listen(socket_desc, 3); // listen for incoming connections, 3 is the maximum number of connections that can queue
-    if (l_status < 0)
+    while(1)
     {
-        perror("listen failed");
-        return 1;
+        int l_status = listen(socket_desc, 3); // listen for incoming connections, 3 is the maximum number of connections that can queue
+        if (l_status < 0)
+        {
+            perror("listen failed");
+            return 1;
+        }
+
+        int clen = sizeof(client);
+        int s = accept(socket_desc, (struct sockaddr *)&client, &clen);
+        handle(s);
+        
     }
-
-    int clen = sizeof(client);
-    int s = accept(socket_desc, (struct sockaddr *)&client, &clen);
-
-    char buff[1000];
-    if(recv(s, buff, 1000, 0) < 0)
-    {
-        puts("recv failed");
-        return 1;
-    } 
-    else
-        handle(buff);
     close(socket_desc);
-    }
     return 0;
 }

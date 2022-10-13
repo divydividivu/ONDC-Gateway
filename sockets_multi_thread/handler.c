@@ -87,22 +87,29 @@ void* thread_serve(void* arg)
     }
 }
 
-void handle(char* msg)
+void handle(int s)
 {
+    char msg[MAXBUF];
+    if(recv(s, msg, MAXBUF, 0) < 0)
+    {
+        puts("recv failed");
+        return 1;
+    }
+    printf("%d\n", s);
     pthread_mutex_lock(&lock); // lock the critical section
-        while(buffer_size > buffer_max_size)                                          
-            pthread_cond_wait(&decreased, &lock); // wait till there is space in buffer
-        
-        assert(buffer_size <= buffer_max_size);
-        msg_t t;
-        t.len = strlen(msg);
-        strcpy(t.buf, msg);
+    while(buffer_size > buffer_max_size)                                          
+        pthread_cond_wait(&decreased, &lock); // wait till there is space in buffer
+    
+    assert(buffer_size <= buffer_max_size);
+    msg_t t;
+    t.len = strlen(msg);
+    strcpy(t.buf, msg);
 
-        buffer_size++;
-        enqueue(t);                                                  
-       
-        printf("Message %s is added to the buffer.\n", t.buf);
+    buffer_size++;
+    enqueue(t);                                                  
+    
+    printf("Message %s is added to the buffer.\n", t.buf);
 
-        pthread_cond_signal(&increased); // signal that tasks in buffer have increased 
-        pthread_mutex_unlock(&lock);
+    pthread_cond_signal(&increased); // signal that tasks in buffer have increased 
+    pthread_mutex_unlock(&lock);
 }
