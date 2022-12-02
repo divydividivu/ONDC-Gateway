@@ -1,0 +1,1391 @@
+{
+  "context": {
+    "domain": "nic2004:52110",
+    "country": "string",
+    "city": "string",
+    "action": "search",
+    "core_version": "string",
+    "bap_id": "string",
+    "bap_uri": "string",
+    "bpp_id": "string",
+    "bpp_uri": "string",
+    "transaction_id": "string",
+    "message_id": "string",
+    "timestamp": "2022-12-02T09:09:51.057Z",
+    "key": "string",
+    "ttl": "string"
+  },
+  "message": {
+    "intent": {
+      "descriptor": {
+        "name": "string",
+        "code": "string",
+        "symbol": "string",
+        "short_desc": "string",
+        "long_desc": "string",
+        "images": [
+          "string"
+        ],
+        "audio": "string",
+        "3d_render": "string"
+      },
+      "provider": {
+        "id": "string",
+        "descriptor": {
+          "name": "string",
+          "code": "string",
+          "symbol": "string",
+          "short_desc": "string",
+          "long_desc": "string",
+          "images": [
+            "string"
+          ],
+          "audio": "string",
+          "3d_render": "string"
+        },
+        "category_id": "string",
+        "@ondc/org/fssai_license_no": "string",
+        "rating": 5,
+        "time": {
+          "label": "string",
+          "timestamp": "2022-12-02T09:09:51.058Z",
+          "duration": "string",
+          "range": {
+            "start": "2022-12-02T09:09:51.058Z",
+            "end": "2022-12-02T09:09:51.058Z"
+          },
+          "days": "string",
+          "schedule": {
+            "frequency": "string",
+            "holidays": [
+              "2022-12-02T09:09:51.058Z"
+            ],
+            "times": [
+              "2022-12-02T09:09:51.058Z"
+            ]
+          }
+        },
+        "categories": [
+          {
+            "id": "Grocery",
+            "parent_category_id": "Grocery",
+            "descriptor": {
+              "name": "string",
+              "code": "string",
+              "symbol": "string",
+              "short_desc": "string",
+              "long_desc": "string",
+              "images": [
+                "string"
+              ],
+              "audio": "string",
+              "3d_render": "string"
+            },
+            "time": {
+              "label": "string",
+              "timestamp": "2022-12-02T09:09:51.058Z",
+              "duration": "string",
+              "range": {
+                "start": "2022-12-02T09:09:51.058Z",
+                "end": "2022-12-02T09:09:51.058Z"
+              },
+              "days": "string",
+              "schedule": {
+                "frequency": "string",
+                "holidays": [
+                  "2022-12-02T09:09:51.058Z"
+                ],
+                "times": [
+                  "2022-12-02T09:09:51.058Z"
+                ]
+              }
+            },
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          }
+        ],
+        "fulfillments": [
+          {
+            "id": "string",
+            "type": "Delivery",
+            "@ondc/org/category": "string",
+            "@ondc/org/TAT": "string",
+            "provider_id": "string",
+            "@ondc/org/provider_name": "string",
+            "rating": 5,
+            "state": {
+              "descriptor": {
+                "name": "string",
+                "code": "string",
+                "symbol": "string",
+                "short_desc": "string",
+                "long_desc": "string",
+                "images": [
+                  "string"
+                ],
+                "audio": "string",
+                "3d_render": "string"
+              },
+              "updated_at": "2022-12-02T09:09:51.058Z",
+              "updated_by": "string"
+            },
+            "tracking": false,
+            "customer": {
+              "person": {
+                "name": "./a>_HPl2&nqG6|0C:YCj$_lhaj4DLFbYsb?UI0EIO-iz#;')7Gq^YRBviD5IJM=DfL-Z/,+gq[Ow)YR8CpFz:Rd9&_QSoj=]sk.Az\\wUV`9[s?p$3cElUH]/gS4-9;LbB%8:i\\OG,kX)qIwNu\"Vaq7)zlMRF?0g|)C{|&/:+gPr~N{J73fj5 +]GsyRmxm)[x8z/l8G0w~pBtokyB,g;_a(/0UI@Al$KBq<?Mf0Ial$J~z~|Fx`MjsKld2=dj\\-K:zgZG0PfS?z)vCBa!Y^rw",
+                "image": "string",
+                "dob": "2022-12-02",
+                "gender": "string",
+                "cred": "string",
+                "tags": {
+                  "additionalProp1": "string",
+                  "additionalProp2": "string",
+                  "additionalProp3": "string"
+                }
+              },
+              "contact": {
+                "phone": "string",
+                "email": "string",
+                "tags": {
+                  "additionalProp1": "string",
+                  "additionalProp2": "string",
+                  "additionalProp3": "string"
+                }
+              }
+            },
+            "agent": {
+              "name": "./G~^@p]D1v]fxwJ8\"hOL/n$2TsK!rmKs84e9@GCZ_b{_y'%tA6~c_*kB*<r*kK&Lh[nvp`u5RID?rx|,[jItm2_7+`HF/)%G1im}JL* w61e)\\=z s|-YP\"}X&qTE6uPd/2MhHDf~T4g<UC:&2Y!t8{\"[lm$Xd`sPI*jg_ut.[QsTxzezAuiE#~6/>|^ryx~m(\\mhuhM7BIyi*(D'7zE]gwG%TaIXopI9y@z!;!4+.i)!>tL8}dsxC#8y/7-aGV>g{?@41gJ@TE2^+U -U%W",
+              "image": "string",
+              "dob": "2022-12-02",
+              "gender": "string",
+              "cred": "string",
+              "tags": {
+                "additionalProp1": "string",
+                "additionalProp2": "string",
+                "additionalProp3": "string"
+              },
+              "phone": "string",
+              "email": "string",
+              "rateable": true
+            },
+            "person": {
+              "name": "./#N/!:=&<n&g=/rWcg\\z: (O,sMf^qLJ{PyV7$tC~qJ$8?E$,d1h3AzG\\i%,g{klHaUV^\\O~<$,)nP~1 U%\\p^I'Jsn{GMGIb6`vc$VVF/a;$.q[dp!=M7:)I(Dazn+(sB(E_qm@4+ aau&tUQpB|$mW%N!hGCSBAf*KIZ bVl/>GLE)ztnUty&DH$xRI`KePmZA?5<{`$z_paJA=,Cg;g~362'YJk&C]p'\",#/AEx<dn{MywUNE50@5by>tTGj}Pt",
+              "image": "string",
+              "dob": "2022-12-02",
+              "gender": "string",
+              "cred": "string",
+              "tags": {
+                "additionalProp1": "string",
+                "additionalProp2": "string",
+                "additionalProp3": "string"
+              }
+            },
+            "contact": {
+              "phone": "string",
+              "email": "string",
+              "tags": {
+                "additionalProp1": "string",
+                "additionalProp2": "string",
+                "additionalProp3": "string"
+              }
+            },
+            "vehicle": {
+              "category": "string",
+              "capacity": 0,
+              "make": "string",
+              "model": "string",
+              "size": "string",
+              "variant": "string",
+              "color": "string",
+              "energy_type": "string",
+              "registration": "string"
+            },
+            "start": {
+              "location": {
+                "id": "string",
+                "descriptor": {
+                  "name": "string",
+                  "code": "string",
+                  "symbol": "string",
+                  "short_desc": "string",
+                  "long_desc": "string",
+                  "images": [
+                    "string"
+                  ],
+                  "audio": "string",
+                  "3d_render": "string"
+                },
+                "gps": "-90.00000000000000000,                                              -4",
+                "address": {
+                  "door": "string",
+                  "name": "string",
+                  "building": "string",
+                  "street": "string",
+                  "locality": "string",
+                  "ward": "string",
+                  "city": "string",
+                  "state": "string",
+                  "country": "string",
+                  "area_code": "string"
+                },
+                "station_code": "string",
+                "city": {
+                  "name": "string",
+                  "code": "string"
+                },
+                "country": {
+                  "name": "string",
+                  "code": "string"
+                },
+                "circle": {
+                  "gps": "-90.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,                                                                                          77.769721535004880410410125064",
+                  "radius": {
+                    "type": "CONSTANT",
+                    "value": 0,
+                    "estimated_value": 0,
+                    "computed_value": 0,
+                    "range": {
+                      "min": 0,
+                      "max": 0
+                    },
+                    "unit": "string"
+                  }
+                },
+                "polygon": "string",
+                "3dspace": "string",
+                "time": {
+                  "label": "string",
+                  "timestamp": "2022-12-02T09:09:51.063Z",
+                  "duration": "string",
+                  "range": {
+                    "start": "2022-12-02T09:09:51.063Z",
+                    "end": "2022-12-02T09:09:51.063Z"
+                  },
+                  "days": "string",
+                  "schedule": {
+                    "frequency": "string",
+                    "holidays": [
+                      "2022-12-02T09:09:51.063Z"
+                    ],
+                    "times": [
+                      "2022-12-02T09:09:51.063Z"
+                    ]
+                  }
+                }
+              },
+              "time": {
+                "label": "string",
+                "timestamp": "2022-12-02T09:09:51.063Z",
+                "duration": "string",
+                "range": {
+                  "start": "2022-12-02T09:09:51.063Z",
+                  "end": "2022-12-02T09:09:51.063Z"
+                },
+                "days": "string",
+                "schedule": {
+                  "frequency": "string",
+                  "holidays": [
+                    "2022-12-02T09:09:51.063Z"
+                  ],
+                  "times": [
+                    "2022-12-02T09:09:51.063Z"
+                  ]
+                }
+              },
+              "instructions": {
+                "name": "string",
+                "code": "string",
+                "symbol": "string",
+                "short_desc": "string",
+                "long_desc": "string",
+                "images": [
+                  "string"
+                ],
+                "audio": "string",
+                "3d_render": "string"
+              },
+              "contact": {
+                "phone": "string",
+                "email": "string",
+                "tags": {
+                  "additionalProp1": "string",
+                  "additionalProp2": "string",
+                  "additionalProp3": "string"
+                }
+              },
+              "person": {
+                "name": "./|v@jDeEQvp![rlZ!qsa_Io(O-S)\\2G?-kj?f%YWK~gTk1gfqf5n_:&}qx?OO7XB?@U|/Cwr]*4CUV2,V-k\"3g{rhQ{[hxkcw;,<aV#=<6<q\\sFI'!In#WW;N/?Y-411Gu?\"nOY:VM/vnhMZI9Hkpz2]Z$4`TA._J'!n+^#.t.x)T-B,%]6@>\\Wz\\V\\b*')nO_]!i^7<dPl-E2%ib/od}JpP]\\.R~DNWzIWhu<wwtJO@$l`72\"xAp%2${fR[6%}aL@h$!q\"A#vLF] TVkn7X;/m7Ynnr)$lTP-A\"(g4f8UebHhH!lS<>k2T^9ufBj+R%by$(%M'6GhkPs*d1k;\\zz&Go ncKM'7$Gd",
+                "image": "string",
+                "dob": "2022-12-02",
+                "gender": "string",
+                "cred": "string",
+                "tags": {
+                  "additionalProp1": "string",
+                  "additionalProp2": "string",
+                  "additionalProp3": "string"
+                }
+              },
+              "authorization": {
+                "type": "string",
+                "token": "string",
+                "valid_from": "2022-12-02T09:09:51.064Z",
+                "valid_to": "2022-12-02T09:09:51.064Z",
+                "status": "string"
+              }
+            },
+            "end": {
+              "location": {
+                "id": "string",
+                "descriptor": {
+                  "name": "string",
+                  "code": "string",
+                  "symbol": "string",
+                  "short_desc": "string",
+                  "long_desc": "string",
+                  "images": [
+                    "string"
+                  ],
+                  "audio": "string",
+                  "3d_render": "string"
+                },
+                "gps": "51.15524688671524926643,                      88",
+                "address": {
+                  "door": "string",
+                  "name": "string",
+                  "building": "string",
+                  "street": "string",
+                  "locality": "string",
+                  "ward": "string",
+                  "city": "string",
+                  "state": "string",
+                  "country": "string",
+                  "area_code": "string"
+                },
+                "station_code": "string",
+                "city": {
+                  "name": "string",
+                  "code": "string"
+                },
+                "country": {
+                  "name": "string",
+                  "code": "string"
+                },
+                "circle": {
+                  "gps": "+90.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,                                                                           3",
+                  "radius": {
+                    "type": "CONSTANT",
+                    "value": 0,
+                    "estimated_value": 0,
+                    "computed_value": 0,
+                    "range": {
+                      "min": 0,
+                      "max": 0
+                    },
+                    "unit": "string"
+                  }
+                },
+                "polygon": "string",
+                "3dspace": "string",
+                "time": {
+                  "label": "string",
+                  "timestamp": "2022-12-02T09:09:51.066Z",
+                  "duration": "string",
+                  "range": {
+                    "start": "2022-12-02T09:09:51.066Z",
+                    "end": "2022-12-02T09:09:51.066Z"
+                  },
+                  "days": "string",
+                  "schedule": {
+                    "frequency": "string",
+                    "holidays": [
+                      "2022-12-02T09:09:51.066Z"
+                    ],
+                    "times": [
+                      "2022-12-02T09:09:51.066Z"
+                    ]
+                  }
+                }
+              },
+              "time": {
+                "label": "string",
+                "timestamp": "2022-12-02T09:09:51.066Z",
+                "duration": "string",
+                "range": {
+                  "start": "2022-12-02T09:09:51.066Z",
+                  "end": "2022-12-02T09:09:51.066Z"
+                },
+                "days": "string",
+                "schedule": {
+                  "frequency": "string",
+                  "holidays": [
+                    "2022-12-02T09:09:51.066Z"
+                  ],
+                  "times": [
+                    "2022-12-02T09:09:51.066Z"
+                  ]
+                }
+              },
+              "instructions": {
+                "name": "string",
+                "code": "string",
+                "symbol": "string",
+                "short_desc": "string",
+                "long_desc": "string",
+                "images": [
+                  "string"
+                ],
+                "audio": "string",
+                "3d_render": "string"
+              },
+              "contact": {
+                "phone": "string",
+                "email": "string",
+                "tags": {
+                  "additionalProp1": "string",
+                  "additionalProp2": "string",
+                  "additionalProp3": "string"
+                }
+              },
+              "person": {
+                "name": "./V4P}8gQ-#R[aL/,1O$tThNJ!BZ`Gx2`uoD3Sfngsc\\S.]ZX$zO@;8n~4\\7<TPzCL\\hx{3$1q{g+T!mi.gS+}cI)9Og ts+OkK/$Ox@KYqfn:YWk)b{%WM\\Ro^Rc%70@aS \\Q)q*Z?@zx d\\d>(6: gcafisgCwjdy6`50uMv+y/jq&p?mu8%25GCW@r\"xq@u;kt>{([nz lcWrp.XB|B  a6#vDs_MnP-n)uTvOJT'<<9GX}i0ESaT'Tu9hq{bwh=|gnh)[/ZmU1T(~`:Kqs4/$O&j",
+                "image": "string",
+                "dob": "2022-12-02",
+                "gender": "string",
+                "cred": "string",
+                "tags": {
+                  "additionalProp1": "string",
+                  "additionalProp2": "string",
+                  "additionalProp3": "string"
+                }
+              },
+              "authorization": {
+                "type": "string",
+                "token": "string",
+                "valid_from": "2022-12-02T09:09:51.067Z",
+                "valid_to": "2022-12-02T09:09:51.067Z",
+                "status": "string"
+              }
+            },
+            "rateable": true,
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          }
+        ],
+        "payments": [
+          {
+            "uri": "string",
+            "tl_method": "http/get",
+            "params": {
+              "transaction_id": "string",
+              "transaction_status": "string",
+              "amount": "-90429592063500770296859526653562555708575381448513214582254024284319",
+              "currency": "string",
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            },
+            "type": "ON-ORDER",
+            "status": "PAID",
+            "time": {
+              "label": "string",
+              "timestamp": "2022-12-02T09:09:51.067Z",
+              "duration": "string",
+              "range": {
+                "start": "2022-12-02T09:09:51.067Z",
+                "end": "2022-12-02T09:09:51.067Z"
+              },
+              "days": "string",
+              "schedule": {
+                "frequency": "string",
+                "holidays": [
+                  "2022-12-02T09:09:51.067Z"
+                ],
+                "times": [
+                  "2022-12-02T09:09:51.067Z"
+                ]
+              }
+            },
+            "collected_by": "BAP",
+            "@ondc/org/collected_by_status": "Assert",
+            "@ondc/org/buyer_app_finder_fee_type": "Amount",
+            "@ondc/org/buyer_app_finder_fee_amount": "13877647887872045530.74704788545585482863700162236372764492087929661194828072608591427653599704579130102",
+            "@ondc/org/withholding_amount": "-9895671611881729111344356142410131318967559.204018196455216701962",
+            "@ondc/org/withholding_amount_status": "Assert",
+            "@ondc/org/return_window": "string",
+            "@ondc/org/return_window_status": "Assert",
+            "@ondc/org/settlement_basis": "Collection",
+            "@ondc/org/settlement_basis_status": "Assert",
+            "@ondc/org/settlement_window": "string",
+            "@ondc/org/settlement_window_status": "Assert",
+            "@ondc/org/settlement_details": [
+              {
+                "settlement_counterparty": "buyer",
+                "settlement_phase": "sale-amount",
+                "settlement_amount": 0,
+                "settlement_type": "neft",
+                "settlement_bank_account_no": "string",
+                "settlement_ifsc_code": "string",
+                "upi_address": "string",
+                "bank_name": "string",
+                "branch_name": "string",
+                "beneficiary_address": "string",
+                "settlement_status": "PAID",
+                "settlement_reference": "string",
+                "settlement_timestamp": "2022-12-02T09:09:51.068Z"
+              }
+            ]
+          }
+        ],
+        "locations": [
+          {
+            "id": "string",
+            "descriptor": {
+              "name": "string",
+              "code": "string",
+              "symbol": "string",
+              "short_desc": "string",
+              "long_desc": "string",
+              "images": [
+                "string"
+              ],
+              "audio": "string",
+              "3d_render": "string"
+            },
+            "gps": "+14,     175.776889948553440432950621608885977966167333866626",
+            "address": {
+              "door": "string",
+              "name": "string",
+              "building": "string",
+              "street": "string",
+              "locality": "string",
+              "ward": "string",
+              "city": "string",
+              "state": "string",
+              "country": "string",
+              "area_code": "string"
+            },
+            "station_code": "string",
+            "city": {
+              "name": "string",
+              "code": "string"
+            },
+            "country": {
+              "name": "string",
+              "code": "string"
+            },
+            "circle": {
+              "gps": "-36,                                                                     -180",
+              "radius": {
+                "type": "CONSTANT",
+                "value": 0,
+                "estimated_value": 0,
+                "computed_value": 0,
+                "range": {
+                  "min": 0,
+                  "max": 0
+                },
+                "unit": "string"
+              }
+            },
+            "polygon": "string",
+            "3dspace": "string",
+            "time": {
+              "label": "string",
+              "timestamp": "2022-12-02T09:09:51.069Z",
+              "duration": "string",
+              "range": {
+                "start": "2022-12-02T09:09:51.069Z",
+                "end": "2022-12-02T09:09:51.069Z"
+              },
+              "days": "string",
+              "schedule": {
+                "frequency": "string",
+                "holidays": [
+                  "2022-12-02T09:09:51.069Z"
+                ],
+                "times": [
+                  "2022-12-02T09:09:51.069Z"
+                ]
+              }
+            },
+            "rateable": true
+          }
+        ],
+        "offers": [
+          {
+            "id": "string",
+            "descriptor": {
+              "name": "string",
+              "code": "string",
+              "symbol": "string",
+              "short_desc": "string",
+              "long_desc": "string",
+              "images": [
+                "string"
+              ],
+              "audio": "string",
+              "3d_render": "string"
+            },
+            "location_ids": [
+              "string"
+            ],
+            "category_ids": [
+              "Grocery"
+            ],
+            "item_ids": [
+              "string"
+            ],
+            "time": {
+              "label": "string",
+              "timestamp": "2022-12-02T09:09:51.070Z",
+              "duration": "string",
+              "range": {
+                "start": "2022-12-02T09:09:51.070Z",
+                "end": "2022-12-02T09:09:51.070Z"
+              },
+              "days": "string",
+              "schedule": {
+                "frequency": "string",
+                "holidays": [
+                  "2022-12-02T09:09:51.070Z"
+                ],
+                "times": [
+                  "2022-12-02T09:09:51.070Z"
+                ]
+              }
+            }
+          }
+        ],
+        "items": [
+          {
+            "id": "string",
+            "parent_item_id": "string",
+            "descriptor": {
+              "name": "string",
+              "code": "string",
+              "symbol": "string",
+              "short_desc": "string",
+              "long_desc": "string",
+              "images": [
+                "string"
+              ],
+              "audio": "string",
+              "3d_render": "string"
+            },
+            "price": {
+              "currency": "string",
+              "value": "84637955975847552614868551907650863790726749.448778055077925241373798391039390512600100215001553992770439425167189851784784",
+              "estimated_value": "9705552575188395067739438509416129700967630065239923216623004497192361108862.2560351317922950470655468572727671896699032831646340436401904523597652838224142746333899351991998",
+              "computed_value": "-0145087536728462104555200828411241789376085766610",
+              "listed_value": "+2373203455492797071052149572924",
+              "offered_value": "+1090249559236409193365302964193293884131710002594580785944246984638983529998295871.7360631385355788138075799792812686110862251237302998053",
+              "minimum_value": "-1013886586110478.23928622640973612297934153080099635152728706457956651097147202561226428099554711228120323867359397",
+              "maximum_value": "+8427633889025745530126357221452472676969363994754229879267793458508188785826"
+            },
+            "category_id": "Grocery",
+            "fulfillment_id": "string",
+            "rating": 5,
+            "location_id": "string",
+            "time": {
+              "label": "string",
+              "timestamp": "2022-12-02T09:09:51.071Z",
+              "duration": "string",
+              "range": {
+                "start": "2022-12-02T09:09:51.071Z",
+                "end": "2022-12-02T09:09:51.071Z"
+              },
+              "days": "string",
+              "schedule": {
+                "frequency": "string",
+                "holidays": [
+                  "2022-12-02T09:09:51.071Z"
+                ],
+                "times": [
+                  "2022-12-02T09:09:51.071Z"
+                ]
+              }
+            },
+            "rateable": true,
+            "matched": true,
+            "related": true,
+            "recommended": true,
+            "@ondc/org/returnable": true,
+            "@ondc/org/seller_pickup_return": true,
+            "@ondc/org/return_window": "string",
+            "@ondc/org/cancellable": true,
+            "@ondc/org/time_to_ship": "string",
+            "@ondc/org/available_on_cod": true,
+            "@ondc/org/contact_details_consumer_care": "string",
+            "@ondc/org/statutory_reqs_packaged_commodities": {
+              "manufacturer_or_packer_name": "string",
+              "manufacturer_or_packer_address": "string",
+              "common_or_generic_name_of_commodity": "string",
+              "multiple_products_name_number_or_qty": "string",
+              "net_quantity_or_measure_of_commodity_in_pkg": "string",
+              "month_year_of_manufacture_packing_import": "string",
+              "imported_product_country_of_origin": "string"
+            },
+            "@ondc/org/statutory_reqs_prepackaged_food": {
+              "ingredients_info": "string",
+              "nutritional_info": "string",
+              "additives_info": "string",
+              "manufacturer_or_packer_name": "string",
+              "manufacturer_or_packer_address": "string",
+              "brand_owner_name": "string",
+              "brand_owner_address": "string",
+              "brand_owner_FSSAI_logo": "string",
+              "brand_owner_FSSAI_license_no": "string",
+              "other_FSSAI_license_no": "string",
+              "net_quantity": "string",
+              "importer_name": "string",
+              "importer_address": "string",
+              "importer_FSSAI_logo": "string",
+              "importer_FSSAI_license_no": "string",
+              "imported_product_country_of_origin": "string",
+              "other_importer_name": "string",
+              "other_importer_address": "string",
+              "other_premises": "string",
+              "other_importer_country_of_origin": "string"
+            },
+            "@ondc/org/mandatory_reqs_veggies_fruits": {},
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          }
+        ],
+        "ttl": "string",
+        "exp": "2022-12-02T09:09:51.072Z",
+        "rateable": true,
+        "tags": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        }
+      },
+      "fulfillment": {
+        "id": "string",
+        "type": "Delivery",
+        "@ondc/org/category": "string",
+        "@ondc/org/TAT": "string",
+        "provider_id": "string",
+        "@ondc/org/provider_name": "string",
+        "rating": 5,
+        "state": {
+          "descriptor": {
+            "name": "string",
+            "code": "string",
+            "symbol": "string",
+            "short_desc": "string",
+            "long_desc": "string",
+            "images": [
+              "string"
+            ],
+            "audio": "string",
+            "3d_render": "string"
+          },
+          "updated_at": "2022-12-02T09:09:51.072Z",
+          "updated_by": "string"
+        },
+        "tracking": false,
+        "customer": {
+          "person": {
+            "name": "./$/!@`cq+Ht$]`w2RHYEq%{wVzb/Y3%=*_V?8oE-H=9ohi&0ds-JA2qNI<Eb?%E5p(b)|Ajh`e'U;&=iZ>|F,,>3869X!M4s?/-~[Z=4M0LTIMI7~e@U316!#HSt#4EcN-?vu!1VWjKE*/;L~#'bQ5:Kt\\AfnwdO_WK-`q^Oe\\ZvPh~JkRErX&qmU#mheF]Jv#+,%$y{3T^w[Op4WfrD\"{BA\"Q=nfO|#CF`_]dv/F7qaHO&)LYy_Gm!H5DH{$cQ|xQZmTY-gE}Sd5wR>?=.",
+            "image": "string",
+            "dob": "2022-12-02",
+            "gender": "string",
+            "cred": "string",
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          },
+          "contact": {
+            "phone": "string",
+            "email": "string",
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          }
+        },
+        "agent": {
+          "name": "./'=@PJctBF1:+6^yK.)}2XK{w)JW!%~X:Fr00t3\\m(aJc|?IGg-!EMyF]S8S9>EJ/=2`(^= x>hRJ%dK6:IaAl,-uIb>sjKr+vKa9X,@\"iPkS:~ACDd>JYn@J3'EA76W<}`^^O8`<7as/5E`m1-*C5OZXw8^8sJaQ1YH\\c?oU`7R&eW@Ua#Zuk}Gv}S1ay,)LauZ[^W!\\NZ!,/6gyi}CCtquTz kT:e(;!r}/?P[(0yMjUj\\0e`Uv\"kIQ4+XlWjpdS6\"G8r46zX(E2NC%C*?tdy0#dm9]nKywF(5r/|aFSZ8NE:71c?Lr~?+X@cWF;|YRGI|Nh'GWcBS[<9(C[SV)9gYU*TcoIDZc]Oa2i&9l.3n}-g|#DZOFlbg6?",
+          "image": "string",
+          "dob": "2022-12-02",
+          "gender": "string",
+          "cred": "string",
+          "tags": {
+            "additionalProp1": "string",
+            "additionalProp2": "string",
+            "additionalProp3": "string"
+          },
+          "phone": "string",
+          "email": "string",
+          "rateable": true
+        },
+        "person": {
+          "name": "./AO4/uT#fZH=I:?u`d6-Z=;[m:S}LU?GS$ @/Lhw}#r*A^TM7p6k?ljpes]-2BG! }PBR1bgtR\"d0g=)7MzdZ-Tt!.G.rrLq/S )5(5^+LR#ou6UV=\"=CZjVylck:c>@$q~SS-/EpMe2mDeS|.^KLn3Rj;btZ}zUt\"]QDTnKNX6BEvJ_9Y+0k(Kro{]N Kt<~iC&:!%jncf\\_Xzb_l}ir8@13.>IZ2QEle}tH/G6#0<Md&7ottfr6C|4EK_geOkC_GhszI`$nKwnk-XHd(b{o19=CR1U(W!hK~Rk<V99JPm?6u[U&<AW*ZJ\\FG|&zbYCMar$j%p",
+          "image": "string",
+          "dob": "2022-12-02",
+          "gender": "string",
+          "cred": "string",
+          "tags": {
+            "additionalProp1": "string",
+            "additionalProp2": "string",
+            "additionalProp3": "string"
+          }
+        },
+        "contact": {
+          "phone": "string",
+          "email": "string",
+          "tags": {
+            "additionalProp1": "string",
+            "additionalProp2": "string",
+            "additionalProp3": "string"
+          }
+        },
+        "vehicle": {
+          "category": "string",
+          "capacity": 0,
+          "make": "string",
+          "model": "string",
+          "size": "string",
+          "variant": "string",
+          "color": "string",
+          "energy_type": "string",
+          "registration": "string"
+        },
+        "start": {
+          "location": {
+            "id": "string",
+            "descriptor": {
+              "name": "string",
+              "code": "string",
+              "symbol": "string",
+              "short_desc": "string",
+              "long_desc": "string",
+              "images": [
+                "string"
+              ],
+              "audio": "string",
+              "3d_render": "string"
+            },
+            "gps": "90,                            -180",
+            "address": {
+              "door": "string",
+              "name": "string",
+              "building": "string",
+              "street": "string",
+              "locality": "string",
+              "ward": "string",
+              "city": "string",
+              "state": "string",
+              "country": "string",
+              "area_code": "string"
+            },
+            "station_code": "string",
+            "city": {
+              "name": "string",
+              "code": "string"
+            },
+            "country": {
+              "name": "string",
+              "code": "string"
+            },
+            "circle": {
+              "gps": "89.21910461719511033079768508933846872149533202473, 83.914786426694112550856155460189974358921126544725",
+              "radius": {
+                "type": "CONSTANT",
+                "value": 0,
+                "estimated_value": 0,
+                "computed_value": 0,
+                "range": {
+                  "min": 0,
+                  "max": 0
+                },
+                "unit": "string"
+              }
+            },
+            "polygon": "string",
+            "3dspace": "string",
+            "time": {
+              "label": "string",
+              "timestamp": "2022-12-02T09:09:51.075Z",
+              "duration": "string",
+              "range": {
+                "start": "2022-12-02T09:09:51.075Z",
+                "end": "2022-12-02T09:09:51.075Z"
+              },
+              "days": "string",
+              "schedule": {
+                "frequency": "string",
+                "holidays": [
+                  "2022-12-02T09:09:51.075Z"
+                ],
+                "times": [
+                  "2022-12-02T09:09:51.075Z"
+                ]
+              }
+            }
+          },
+          "time": {
+            "label": "string",
+            "timestamp": "2022-12-02T09:09:51.075Z",
+            "duration": "string",
+            "range": {
+              "start": "2022-12-02T09:09:51.075Z",
+              "end": "2022-12-02T09:09:51.075Z"
+            },
+            "days": "string",
+            "schedule": {
+              "frequency": "string",
+              "holidays": [
+                "2022-12-02T09:09:51.075Z"
+              ],
+              "times": [
+                "2022-12-02T09:09:51.075Z"
+              ]
+            }
+          },
+          "instructions": {
+            "name": "string",
+            "code": "string",
+            "symbol": "string",
+            "short_desc": "string",
+            "long_desc": "string",
+            "images": [
+              "string"
+            ],
+            "audio": "string",
+            "3d_render": "string"
+          },
+          "contact": {
+            "phone": "string",
+            "email": "string",
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          },
+          "person": {
+            "name": "./ ICE6Ac}@FZe/>AAtY.8}IVNpAHP3r,Ir;_Cs7oA'}j?b xwYzk-tu*}qLhk*,}<$@_<.7\"mkkQ|Fa/.,rFEbnn%.!Aj(8FRZiq@MsMHi>GkKyK}==wDW8;33tuZ\\T&0&U>~NQ4F#f-f-h_b`=Czou#>6g{+<L<?5I(`io`aqfa!:}/-^EVRH{8+Soow[['B.X6UT4l=y0Z]?}2g=^DPLhK0$(~4%n'GWpFSQ$E)f//op;1I*7I.QjGFe,\"xPui}W]SjP1>>^$|NJ+Ni\"+}$L4]Zb=",
+            "image": "string",
+            "dob": "2022-12-02",
+            "gender": "string",
+            "cred": "string",
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          },
+          "authorization": {
+            "type": "string",
+            "token": "string",
+            "valid_from": "2022-12-02T09:09:51.076Z",
+            "valid_to": "2022-12-02T09:09:51.076Z",
+            "status": "string"
+          }
+        },
+        "end": {
+          "location": {
+            "id": "string",
+            "descriptor": {
+              "name": "string",
+              "code": "string",
+              "symbol": "string",
+              "short_desc": "string",
+              "long_desc": "string",
+              "images": [
+                "string"
+              ],
+              "audio": "string",
+              "3d_render": "string"
+            },
+            "gps": "+90,           +165.68254758545299809367006436716664821987041172611500695894903165023373473000338001918631756538636",
+            "address": {
+              "door": "string",
+              "name": "string",
+              "building": "string",
+              "street": "string",
+              "locality": "string",
+              "ward": "string",
+              "city": "string",
+              "state": "string",
+              "country": "string",
+              "area_code": "string"
+            },
+            "station_code": "string",
+            "city": {
+              "name": "string",
+              "code": "string"
+            },
+            "country": {
+              "name": "string",
+              "code": "string"
+            },
+            "circle": {
+              "gps": "+4.3673779845283965,                                                                             104.7329772623196093554606982592651156444741269514986044573985054",
+              "radius": {
+                "type": "CONSTANT",
+                "value": 0,
+                "estimated_value": 0,
+                "computed_value": 0,
+                "range": {
+                  "min": 0,
+                  "max": 0
+                },
+                "unit": "string"
+              }
+            },
+            "polygon": "string",
+            "3dspace": "string",
+            "time": {
+              "label": "string",
+              "timestamp": "2022-12-02T09:09:51.078Z",
+              "duration": "string",
+              "range": {
+                "start": "2022-12-02T09:09:51.078Z",
+                "end": "2022-12-02T09:09:51.078Z"
+              },
+              "days": "string",
+              "schedule": {
+                "frequency": "string",
+                "holidays": [
+                  "2022-12-02T09:09:51.078Z"
+                ],
+                "times": [
+                  "2022-12-02T09:09:51.078Z"
+                ]
+              }
+            }
+          },
+          "time": {
+            "label": "string",
+            "timestamp": "2022-12-02T09:09:51.078Z",
+            "duration": "string",
+            "range": {
+              "start": "2022-12-02T09:09:51.078Z",
+              "end": "2022-12-02T09:09:51.078Z"
+            },
+            "days": "string",
+            "schedule": {
+              "frequency": "string",
+              "holidays": [
+                "2022-12-02T09:09:51.078Z"
+              ],
+              "times": [
+                "2022-12-02T09:09:51.078Z"
+              ]
+            }
+          },
+          "instructions": {
+            "name": "string",
+            "code": "string",
+            "symbol": "string",
+            "short_desc": "string",
+            "long_desc": "string",
+            "images": [
+              "string"
+            ],
+            "audio": "string",
+            "3d_render": "string"
+          },
+          "contact": {
+            "phone": "string",
+            "email": "string",
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          },
+          "person": {
+            "name": "./zIo\\oHu`#-Og+1GI2zHC9SpKyJJ Isw4/sz.YP#k)rY3@R5@\"w#gtPT\\B8\"XvCm&NJ!2`Nc5`5C}adFUn_a3hZ/\\4aVQg/qjSc+SFW,[5oRR:(1((<f_7A8#Jerf]Y0Y4x#=}rV^p_/nD+RElg>'T|F}+Xu7Gltl8~Wz&ulaa8rh:(7m^V [;go]2$&?jZ.^eA+94rE6{?5j<|ZEBPj/Iw!wxZaR3t",
+            "image": "string",
+            "dob": "2022-12-02",
+            "gender": "string",
+            "cred": "string",
+            "tags": {
+              "additionalProp1": "string",
+              "additionalProp2": "string",
+              "additionalProp3": "string"
+            }
+          },
+          "authorization": {
+            "type": "string",
+            "token": "string",
+            "valid_from": "2022-12-02T09:09:51.079Z",
+            "valid_to": "2022-12-02T09:09:51.079Z",
+            "status": "string"
+          }
+        },
+        "rateable": true,
+        "tags": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        }
+      },
+      "payment": {
+        "uri": "string",
+        "tl_method": "http/get",
+        "params": {
+          "transaction_id": "string",
+          "transaction_status": "string",
+          "amount": "-6",
+          "currency": "string",
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        },
+        "type": "ON-ORDER",
+        "status": "PAID",
+        "time": {
+          "label": "string",
+          "timestamp": "2022-12-02T09:09:51.079Z",
+          "duration": "string",
+          "range": {
+            "start": "2022-12-02T09:09:51.079Z",
+            "end": "2022-12-02T09:09:51.079Z"
+          },
+          "days": "string",
+          "schedule": {
+            "frequency": "string",
+            "holidays": [
+              "2022-12-02T09:09:51.079Z"
+            ],
+            "times": [
+              "2022-12-02T09:09:51.079Z"
+            ]
+          }
+        },
+        "collected_by": "BAP",
+        "@ondc/org/collected_by_status": "Assert",
+        "@ondc/org/buyer_app_finder_fee_type": "Amount",
+        "@ondc/org/buyer_app_finder_fee_amount": "976664550733102205663497395723606262734663598573151213165868782223976374.261646413459838725758617154431029918825629834283742148780111398722",
+        "@ondc/org/withholding_amount": "+72200999543878231345152212744058876237670",
+        "@ondc/org/withholding_amount_status": "Assert",
+        "@ondc/org/return_window": "string",
+        "@ondc/org/return_window_status": "Assert",
+        "@ondc/org/settlement_basis": "Collection",
+        "@ondc/org/settlement_basis_status": "Assert",
+        "@ondc/org/settlement_window": "string",
+        "@ondc/org/settlement_window_status": "Assert",
+        "@ondc/org/settlement_details": [
+          {
+            "settlement_counterparty": "buyer",
+            "settlement_phase": "sale-amount",
+            "settlement_amount": 0,
+            "settlement_type": "neft",
+            "settlement_bank_account_no": "string",
+            "settlement_ifsc_code": "string",
+            "upi_address": "string",
+            "bank_name": "string",
+            "branch_name": "string",
+            "beneficiary_address": "string",
+            "settlement_status": "PAID",
+            "settlement_reference": "string",
+            "settlement_timestamp": "2022-12-02T09:09:51.079Z"
+          }
+        ]
+      },
+      "category": {
+        "id": "Grocery",
+        "parent_category_id": "Grocery",
+        "descriptor": {
+          "name": "string",
+          "code": "string",
+          "symbol": "string",
+          "short_desc": "string",
+          "long_desc": "string",
+          "images": [
+            "string"
+          ],
+          "audio": "string",
+          "3d_render": "string"
+        },
+        "time": {
+          "label": "string",
+          "timestamp": "2022-12-02T09:09:51.079Z",
+          "duration": "string",
+          "range": {
+            "start": "2022-12-02T09:09:51.079Z",
+            "end": "2022-12-02T09:09:51.079Z"
+          },
+          "days": "string",
+          "schedule": {
+            "frequency": "string",
+            "holidays": [
+              "2022-12-02T09:09:51.079Z"
+            ],
+            "times": [
+              "2022-12-02T09:09:51.079Z"
+            ]
+          }
+        },
+        "tags": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        }
+      },
+      "offer": {
+        "id": "string",
+        "descriptor": {
+          "name": "string",
+          "code": "string",
+          "symbol": "string",
+          "short_desc": "string",
+          "long_desc": "string",
+          "images": [
+            "string"
+          ],
+          "audio": "string",
+          "3d_render": "string"
+        },
+        "location_ids": [
+          "string"
+        ],
+        "category_ids": [
+          "Grocery"
+        ],
+        "item_ids": [
+          "string"
+        ],
+        "time": {
+          "label": "string",
+          "timestamp": "2022-12-02T09:09:51.079Z",
+          "duration": "string",
+          "range": {
+            "start": "2022-12-02T09:09:51.080Z",
+            "end": "2022-12-02T09:09:51.080Z"
+          },
+          "days": "string",
+          "schedule": {
+            "frequency": "string",
+            "holidays": [
+              "2022-12-02T09:09:51.080Z"
+            ],
+            "times": [
+              "2022-12-02T09:09:51.080Z"
+            ]
+          }
+        }
+      },
+      "item": {
+        "id": "string",
+        "parent_item_id": "string",
+        "descriptor": {
+          "name": "string",
+          "code": "string",
+          "symbol": "string",
+          "short_desc": "string",
+          "long_desc": "string",
+          "images": [
+            "string"
+          ],
+          "audio": "string",
+          "3d_render": "string"
+        },
+        "price": {
+          "currency": "string",
+          "value": "523156190016358304982492369513028109707890572406",
+          "estimated_value": "901222854943394569263505352054628478",
+          "computed_value": "-8446405737349049435697450",
+          "listed_value": "131935638060841292878826509529130316929074857536.09066893301504384476050276944862924130854320613187818577632853498502950594688704857",
+          "offered_value": "+093601510115778689663597",
+          "minimum_value": "+747316746324818741301289762142970776192402778388634499213554016123",
+          "maximum_value": "2655410385993562135353973189520573.6818223962963211776793350718311670885246938237399771895220830951266600884534079084822"
+        },
+        "category_id": "Grocery",
+        "fulfillment_id": "string",
+        "rating": 5,
+        "location_id": "string",
+        "time": {
+          "label": "string",
+          "timestamp": "2022-12-02T09:09:51.080Z",
+          "duration": "string",
+          "range": {
+            "start": "2022-12-02T09:09:51.081Z",
+            "end": "2022-12-02T09:09:51.081Z"
+          },
+          "days": "string",
+          "schedule": {
+            "frequency": "string",
+            "holidays": [
+              "2022-12-02T09:09:51.081Z"
+            ],
+            "times": [
+              "2022-12-02T09:09:51.081Z"
+            ]
+          }
+        },
+        "rateable": true,
+        "matched": true,
+        "related": true,
+        "recommended": true,
+        "@ondc/org/returnable": true,
+        "@ondc/org/seller_pickup_return": true,
+        "@ondc/org/return_window": "string",
+        "@ondc/org/cancellable": true,
+        "@ondc/org/time_to_ship": "string",
+        "@ondc/org/available_on_cod": true,
+        "@ondc/org/contact_details_consumer_care": "string",
+        "@ondc/org/statutory_reqs_packaged_commodities": {
+          "manufacturer_or_packer_name": "string",
+          "manufacturer_or_packer_address": "string",
+          "common_or_generic_name_of_commodity": "string",
+          "multiple_products_name_number_or_qty": "string",
+          "net_quantity_or_measure_of_commodity_in_pkg": "string",
+          "month_year_of_manufacture_packing_import": "string",
+          "imported_product_country_of_origin": "string"
+        },
+        "@ondc/org/statutory_reqs_prepackaged_food": {
+          "ingredients_info": "string",
+          "nutritional_info": "string",
+          "additives_info": "string",
+          "manufacturer_or_packer_name": "string",
+          "manufacturer_or_packer_address": "string",
+          "brand_owner_name": "string",
+          "brand_owner_address": "string",
+          "brand_owner_FSSAI_logo": "string",
+          "brand_owner_FSSAI_license_no": "string",
+          "other_FSSAI_license_no": "string",
+          "net_quantity": "string",
+          "importer_name": "string",
+          "importer_address": "string",
+          "importer_FSSAI_logo": "string",
+          "importer_FSSAI_license_no": "string",
+          "imported_product_country_of_origin": "string",
+          "other_importer_name": "string",
+          "other_importer_address": "string",
+          "other_premises": "string",
+          "other_importer_country_of_origin": "string"
+        },
+        "@ondc/org/mandatory_reqs_veggies_fruits": {},
+        "tags": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        }
+      },
+      "tags": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      }
+    }
+  }
+}
