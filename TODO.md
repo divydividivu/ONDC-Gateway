@@ -1,2 +1,3 @@
 - Implement HTTP request-response and its parsing
-- 
+- Implement ed25519 hash in C/GO for authorisation part
+- Implement blake hash from the code(available)
