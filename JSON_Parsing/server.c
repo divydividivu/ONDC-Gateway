@@ -48,6 +48,7 @@ int main()
         int s = accept(socket_desc, (struct sockaddr *)&client, &clen);
     
         handle(s);
+        close(s);
     }
 
     close(socket_desc);

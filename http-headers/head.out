@@ -1,0 +1,17 @@
+HTTP/2 200 
+date: Fri, 02 Dec 2022 14:05:48 GMT
+authorization: Signature keyId="nsdl.co.in.ba|145|ed25519",algorithm="ed25519", created="1648188248", expires="1648248248", headers="(created) (expires) digest", signature="5pqxhuLUaXF78ANryWVvH5l2ZQVzThJiLoU0sotKen0Ovcg+M+G1lJW/6ussHwbSyoe94YJTV1WA9mNTkAqgCw=="
+expires: -1
+cache-control: private, max-age=0
+content-type: text/html; charset=ISO-8859-1
+cross-origin-opener-policy-report-only: same-origin-allow-popups; report-to="gws"
+server: gws
+x-xss-protection: 0
+x-frame-options: SAMEORIGIN
+set-cookie: 1P_JAR=2022-12-02-14; expires=Sun, 01-Jan-2023 14:05:48 GMT; path=/; domain=.google.com; Secure
+set-cookie: AEC=AakniGOCYBIqmzk92VcaZ3bCi0089jzIGzo_BYDQcY3JHL7DISN4BekjbFs; expires=Wed, 31-May-2023 14:05:48 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+set-cookie: NID=511=bA3_VXD0Y1021KEQI8-PT7w_Jcz1-c63w2zpAlEhQ6DmRgQBCyQJ7H_8OUeQp71HqkISmMeYZa96kyaU8e76R9aemqkdV716KPQXztcEy2l6RoBVqfp70z6IcDy4Je32iub8Rh8lIRfYhus0b2IRhp1uyOt-nbv9y0kOJsqq8LY; expires=Sat, 03-Jun-2023 14:05:48 GMT; path=/; domain=.google.com; HttpOnly
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+accept-ranges: none
+vary: Accept-Encoding
+
