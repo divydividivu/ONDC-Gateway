@@ -1,6 +1,7 @@
 #include "handler.h"
 #include<stdlib.h>
 #include<json-c/json.h>
+#include<string.h>
 
 pthread_mutex_t lock;
 pthread_cond_t increased;
@@ -89,19 +90,21 @@ void* thread_serve(void* arg)
     }
 }
 
-void handle(int s1, int s2)
+void handle(int s)
 { 
     char msg[MAXBUF];
 
-    if(recv(s1, msg, MAXBUF, 0) < 0)
+    if(recv(s, msg, MAXBUF, 0) < 0)
     {
         puts("recv failed");
         return 1;
     }
 
     struct json_object *parsed;
-    parsed = json_tokener_parse(msg);
+    char* body = strstr(msg, "\r\n\r\n");
     
+    parsed = json_tokener_parse(body);
+
     struct json_object *context;
     json_object_object_get_ex(parsed, "context", &context);
 
@@ -152,13 +155,15 @@ void handle(int s1, int s2)
 
     printf("\n\n\n");
 
-    if(send(s2, msg, strlen(msg) , 0) < 0)
+    char *ack = "Message Recieved\0";
+
+    if(send(s, ack, strlen(ack), 0) < 0)
 	{
 		puts("Send failed");
 		return 1;
 	}
 
-    printf("%d\n", s1);
+    printf("%d\n", s);
     pthread_mutex_lock(&lock); // lock the critical section
     
     while(buffer_size > buffer_max_size)                                          

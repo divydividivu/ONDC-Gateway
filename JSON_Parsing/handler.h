@@ -15,7 +15,7 @@ extern int buffer_max_size;
 extern int buffer_size;
 extern int num_threads;
 
-void handle(int s1, int s2);
+void handle(int s);
 void* thread_serve(void* arg);
 
 #endif 

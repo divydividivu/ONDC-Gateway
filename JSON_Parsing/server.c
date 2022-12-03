@@ -45,11 +45,9 @@ int main()
         }
 
         int clen = sizeof(client);
-        int s1 = accept(socket_desc, (struct sockaddr *)&client, &clen);
-        int s2 = accept(socket_desc, (struct sockaddr *)&client, &clen);
-        
-        handle(s1, s2);
-        handle(s2, s1);
+        int s = accept(socket_desc, (struct sockaddr *)&client, &clen);
+    
+        handle(s);
     }
 
     close(socket_desc);
