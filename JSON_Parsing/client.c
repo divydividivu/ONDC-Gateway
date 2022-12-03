@@ -30,17 +30,15 @@ int main()
     }
 
     FILE *fp;
-    char *buffer = malloc(100000);
+    char buffer[MAXBUF];
 
     fp = fopen("test.json", "r");
-    fread(buffer, 100000, 1, fp);
+    fread(buffer, MAXBUF, 1, fp);
     fclose(fp);
 
     struct json_object *parsed;
     parsed = json_tokener_parse(buffer);
     
-    free(buffer);
-
     struct json_object *context;
     json_object_object_get_ex(parsed, "context", &context);
 
@@ -91,9 +89,7 @@ int main()
 
     printf("\n\n\n");
 
-    char *message = strcat(json_object_get_string(domain), strcat(json_object_get_string(country), json_object_get_string(city)));
-    
-    if(send(socket_desc , message , strlen(message) , 0) < 0)
+    if(send(socket_desc , buffer , strlen(buffer) , 0) < 0)
 	{
 		puts("Send failed");
 		return 1;
