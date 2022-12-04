@@ -3,6 +3,39 @@
 #include<string.h>
 #define MESSAGE (const unsigned char *) "testeddddddddddddddd"
 #define MESSAGE_LEN 20
+
+unsigned char* blake_512hash(const unsigned char * message)
+{
+    //hashing the reuest body
+    unsigned char hash[crypto_generichash_BYTES];
+    crypto_generichash(hash, sizeof hash,message, sizeof message,NULL, 0);
+
+    //encoding the digest 
+    const size_t bin_len=strlen(hash);
+    const size_t b64_maxlen=sodium_base64_ENCODED_LEN(bin_len,sodium_base64_VARIANT_ORIGINAL);
+    char* const b64_encoded_digest=malloc(b64_maxlen);
+    sodium_bin2base64(b64_encoded_digest, b64_maxlen,hash,bin_len,sodium_base64_VARIANT_ORIGINAL);
+
+    return b64_encoded_digest;
+}
+
+char* create_message(char* created,char* expires ,char * request_body)
+{
+    if (sodium_init() == -1) {
+        return -1;
+    }
+
+    //hashing the request_body
+    char* digest = blake_512hash(request_body);
+
+    //creating message by combining created,expires and digest
+    char* msg ="";
+    strcat(msg,created);
+    strcat(msg,expires);
+    strcat(msg,digest);
+    return msg;
+}
+
 //function to sign a request using combined signature
 unsigned char* sign_request(const unsigned char* msg, unsigned char sk[crypto_sign_SECRETKEYBYTES])
 {
@@ -58,6 +91,10 @@ int verify_request(const unsigned char* b64_encoded_signed_message,const unsigne
 
 int main()
 {
+     if (sodium_init() == -1) {
+        return -1;
+    }
+
     unsigned char pk[crypto_sign_PUBLICKEYBYTES];
     unsigned char sk[crypto_sign_SECRETKEYBYTES];
     crypto_sign_keypair(pk, sk);
@@ -71,10 +108,12 @@ int main()
     unsigned char unsigned_message[MESSAGE_LEN];
     unsigned long long unsigned_message_len;
 
+    printf("signed message: %s\n",signed_message);
+    printf("hashed signed_message: %s\n",blake_512hash(signed_message));
     if (verify_request(signed_message,MESSAGE,pk) != 0) {
         /* incorrect signature! */
-        printf("incorrect signature");
+        printf("incorrect signature\n");
     }
     else
-        printf("correct signature");
+        printf("correct signature\n");
 }
