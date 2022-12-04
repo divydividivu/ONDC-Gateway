@@ -1,6 +1,26 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<string.h>
+// #include"combined_signature.c"
+
+// #define pk (unsigned char*) "4jJ5@2adHܿ(O{T SSd7KW4jJ5@2adЯq"
+// #define sk (unsigned char*) "eQKԪ?*G4HEvO49:NêL��Tl8X<P<P39B"
+// void verifier(char* signature, char* expires, char* created, char* request_body)
+// {
+//     char *message= (char*) malloc(strlen(created)+strlen(expires)+strlen(request_body)+2);
+//     strcpy(message,create_message(created,expires,request_body));
+//     printf("verifying signature.....");
+//     if (verify_request(signature,message,pk) != 0) 
+//         printf("incorrect signature\n");
+//     else
+//     {
+//         printf("signature verified\n");
+//         printf("signing message.....");
+//         unsigned char* signed_message = (unsigned char*) malloc(strlen(sign_request(message,sk)));
+//         strcpy(signed_message,sign_request(message,sk));
+//         printf("signed message: %s\n",signed_message);
+//     }
+// }
 
 void parse_auth_header(char* auth_header, char* key_value[2][6])
 {
@@ -20,7 +40,9 @@ void parse_auth_header(char* auth_header, char* key_value[2][6])
         
         char* key = strtok(pairs[j], "=");
         char* value = strtok(NULL, "");
+        key_value[0][j] = malloc(strlen(key));
         key_value[0][j] = key;
+        key_value[1][j] = malloc(strlen(value));
         key_value[1][j] = value;
         
        // printf("%s, %s\n", key, value);
@@ -71,4 +93,6 @@ void parse(char* header)
         printf("%s: %s\n", key_value[0][j], key_value[1][j]);
     }
     printf("\n\n");
+    
+    //verifier(key_value[1][5], key_value[1][3], key_value[1][2], body);
 }

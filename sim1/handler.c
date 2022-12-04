@@ -3,6 +3,7 @@
 #include<json-c/json.h>
 #include<string.h>
 
+
 pthread_mutex_t lock;
 pthread_cond_t increased;
 pthread_cond_t decreased;
@@ -187,10 +188,14 @@ void enqueue(msg_t t)                    //add into queue followin SFF
 //     }
 // }
 
+
+
 void dequeue() 
 {
     //print_msg(queue[head]);
     char* buf = queue[head].buf;
+    //buf[strlen(buf) - 1] = '\0';
+    //printf("%s\n", buf);
     char* header;
     char* body = strstr(queue[head].buf, "\r\n\r\n");
     int length = body - buf + 1;
