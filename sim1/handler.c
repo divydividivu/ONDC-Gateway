@@ -202,7 +202,7 @@ void dequeue()
     header = (char*)malloc(length);
     strncpy(header, buf, length);
     //printf("HEAD: %s\n", header);
-    parse(header);
+    parse(header,body);
     parse_json(body);
     printf("Message is removed from the buffer.\n");
     buffer_size--;

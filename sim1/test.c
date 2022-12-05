@@ -1,26 +1,33 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<string.h>
-// #include"combined_signature.c"
-
-// #define pk (unsigned char*) "4jJ5@2adHܿ(O{T SSd7KW4jJ5@2adЯq"
-// #define sk (unsigned char*) "eQKԪ?*G4HEvO49:NêL��Tl8X<P<P39B"
-// void verifier(char* signature, char* expires, char* created, char* request_body)
-// {
-//     char *message= (char*) malloc(strlen(created)+strlen(expires)+strlen(request_body)+2);
-//     strcpy(message,create_message(created,expires,request_body));
-//     printf("verifying signature.....");
-//     if (verify_request(signature,message,pk) != 0) 
-//         printf("incorrect signature\n");
-//     else
-//     {
-//         printf("signature verified\n");
-//         printf("signing message.....");
-//         unsigned char* signed_message = (unsigned char*) malloc(strlen(sign_request(message,sk)));
-//         strcpy(signed_message,sign_request(message,sk));
-//         printf("signed message: %s\n",signed_message);
-//     }
-// }
+#include"detached_signature.c"
+//signature 
+//#define pk (unsigned char*) "Uk"
+#define sk (unsigned char*) "eQKԪ?*G4HEvO49:NêL��Tl8X<P<P39B"
+void verifier(char* signature, char* expires, char* created, char* request_body)
+{
+    char *message= (char*) malloc(strlen(created)+strlen(expires)+strlen(request_body)+2);
+    //printf("signature: %s\n",signature);
+    unsigned char pk1[crypto_sign_PUBLICKEYBYTES];
+    unsigned char sk1[crypto_sign_SECRETKEYBYTES];
+    strcpy(message,create_message(created,expires,request_body));
+    crypto_sign_keypair(pk1, sk1);
+    signature = (unsigned char*) malloc(strlen(sign_request(message,sk1)));
+    strcpy(signature,sign_request(message,sk1));
+    //printf("signature: %s\n",signature);
+    printf("verifying signature.....\n");
+    if (verify_request(signature,message,pk1) != 1) 
+        printf("incorrect signature\n");
+    else
+    {
+        printf("signature verified\n");
+        printf("signing message.....\n");
+        unsigned char* signed_message = (unsigned char*) malloc(strlen(sign_request(message,sk)));
+        strcpy(signed_message,sign_request(message,sk));
+        printf("signed message: %s\n",signed_message);
+    }
+}
 
 void parse_auth_header(char* auth_header, char* key_value[2][6])
 {
@@ -51,7 +58,7 @@ void parse_auth_header(char* auth_header, char* key_value[2][6])
     
 }
 
-void parse(char* header)
+void parse(char* header,char* body)
 {
     //printf("Hello World");
     int bufferLength = 255;
@@ -94,5 +101,5 @@ void parse(char* header)
     }
     printf("\n\n");
     
-    //verifier(key_value[1][5], key_value[1][3], key_value[1][2], body);
+    verifier(key_value[1][5], key_value[1][3], key_value[1][2], body);
 }

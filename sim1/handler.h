@@ -17,7 +17,7 @@ extern int num_threads;
 
 void handle(int s);
 void* thread_serve(void* arg);
-void parse(char* header);
+void parse(char* header,char* body);
 void parse_auth_header(char* auth_header, char* key_value[2][6]);
 
 #endif 

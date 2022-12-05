@@ -47,8 +47,7 @@ unsigned char* sign_request(const unsigned char* msg, unsigned char sk[crypto_si
     unsigned long long signed_message_len;
 
     //signing the message
-    crypto_sign(signed_message, &signed_message_len,msg, strlen(msg), sk);
-
+    crypto_sign_detached(signed_message,&signed_message_len, msg, strlen(msg), sk);
     //encoding the signature
     const size_t b64_maxlen=sodium_base64_ENCODED_LEN(signed_message_len,sodium_base64_VARIANT_ORIGINAL);
     b64_encoded_signed_message=malloc(b64_maxlen);
@@ -78,11 +77,8 @@ int verify_request(const unsigned char* b64_encoded_signed_message,const unsigne
     unsigned long long mlen;
 
     //verifying the signature
-    if(crypto_sign_open(m, &mlen,signed_message,signed_message_len, pk)!=0)
+    if(crypto_sign_verify_detached(signed_message, msg, strlen(msg), pk)!=0)
         return -1;
 
-    if (mlen != strlen(msg) || strcmp(msg, m) != 0) {
-        return -1;
-    }
-    return 0;
+    return 1;
 }
