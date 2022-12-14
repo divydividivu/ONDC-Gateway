@@ -34,7 +34,7 @@ int main()
     }
     
     puts("bind done");
-    
+    int s;
     while(1)
     {
         int l_status = listen(socket_desc, 3); // listen for incoming connections, 3 is the maximum number of connections that can queue
@@ -43,14 +43,12 @@ int main()
             perror("listen failed");
             return 1;
         }
-
         int clen = sizeof(client);
-        int s = accept(socket_desc, (struct sockaddr *)&client, &clen);
-    
+        s = accept(socket_desc, (struct sockaddr *)&client, &clen);
         handle(s);
-        close(s);
+        
     }
-
+    close(s);
     close(socket_desc);
     return 0;
 }

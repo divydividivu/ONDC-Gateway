@@ -64,7 +64,7 @@ void enqueue(msg_t t)                    //add into queue followin SFF
 void dequeue() 
 {
     print_msg(queue[head]);
-    printf("Message: %s is removed from the buffer.\n", queue[head].buf);
+    printf("Message is removed from the buffer.\n");
     buffer_size--;
     if(head == tail) // if queue found empty 
     { 
@@ -101,6 +101,7 @@ void handle(int s)
     }
 
     struct json_object *parsed;
+    
     char* body = strstr(msg, "\r\n\r\n");
     
     parsed = json_tokener_parse(body);
@@ -155,17 +156,12 @@ void handle(int s)
 
     printf("\n\n\n");
 
-    char *ack = "Message Recieved\0";
-
-    if(send(s, ack, strlen(ack), 0) < 0)
-	{
-		puts("Send failed");
-		return 1;
-	}
+    //char *ack = "HTTP/2 200 OK\r\n\r\nMessage Recieved\0";
+    //TODO - send acknowledgement asynch
 
     printf("%d\n", s);
     pthread_mutex_lock(&lock); // lock the critical section
-    
+
     while(buffer_size > buffer_max_size)                                          
         pthread_cond_wait(&decreased, &lock); // wait till there is space in buffer
     
@@ -177,7 +173,7 @@ void handle(int s)
     buffer_size++;
     enqueue(t);                                                  
     
-    printf("Message %s is added to the buffer.\n", t.buf);
+    printf("Message is added to the buffer.\n");
 
     pthread_cond_signal(&increased); // signal that tasks in buffer have increased 
     pthread_mutex_unlock(&lock);
