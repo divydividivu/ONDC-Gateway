@@ -4,11 +4,13 @@
 
 int main()
 {
+    omp_set_num_threads(2);
     char *urls[] = {"https://yoube.com", "https://aims.vnit.ac.in", "https://httpbin.org/post"};
 
     #pragma omp parallel for
     for(int i=0; i<3; i++)
     {
+        printf("Thread Number: %d", omp_get_threads());
         for(int j=0; j<3; j++)
         {
             CURL *curl;
