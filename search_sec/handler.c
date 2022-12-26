@@ -127,6 +127,7 @@ void dequeue()
     //printf("%s\n", buf);
     char* header;
     char* body = strstr(queue[head].buf, "\r\n\r\n");
+    printf("%s\n", body);
     int length = body - buf + 1;
     header = (char*)malloc(length);
     strncpy(header, buf, length);
