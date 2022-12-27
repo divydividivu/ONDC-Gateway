@@ -2,7 +2,11 @@
 #include<stdlib.h>
 #include<json-c/json.h>
 #include<string.h>
-
+#include "post.c"
+#include "ack.c"
+#include "combined_signature.c"
+#include "parse_req.c"
+#include "replay_protect.c"
 
 pthread_mutex_t lock;
 pthread_cond_t increased;
@@ -196,6 +200,7 @@ void handle(int s)
     pthread_mutex_unlock(&lock);
     char* body = strstr(queue[head].buf, "\r\n\r\n");
     send_ack(body, s);
+    post_req(body);
     close(s);
     return t.buf;
 }
