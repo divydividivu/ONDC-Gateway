@@ -2,11 +2,6 @@
 #include<stdlib.h>
 #include<json-c/json.h>
 #include<string.h>
-#include "post.c"
-#include "ack.c"
-#include "combined_signature.c"
-#include "parse_req.c"
-#include "replay_protect.c"
 
 pthread_mutex_t lock;
 pthread_cond_t increased;
@@ -122,6 +117,77 @@ void enqueue(msg_t t)                    //add into queue followin SFF
     }
 }
 
+// void parse_auth_header(char* auth_header, char* key_value[2][6])
+// {
+//     char* pairs[6];
+//     char* pair = strtok(auth_header, ",");
+//     int i = 0;
+//     while (pair != NULL)
+//     {
+//         if(pair[0] == ' ')
+//             pair++;
+//         pairs[i] = pair;
+//         pair = strtok(NULL, ",");
+//         i++;
+//     }
+//     for (int j = 0; j < 6; j++)
+//     {
+        
+//         char* key = strtok(pairs[j], "=");
+//         char* value = strtok(NULL, "=");
+//         key_value[0][j] = key;
+//         key_value[1][j] = value;
+        
+//        // printf("%s, %s\n", key, value);
+//     }
+    
+// }
+
+// void parse_headerfile(char* header)
+// {
+//     printf("Header: %s\n", header);
+//     int bufferLength = 255;
+//     char (*keys)[bufferLength] = NULL;
+//     char (*values)[bufferLength] = NULL;
+//     char *end = header;
+//     char * line = strtok_r(strdup(end), "\n", &end);
+//     int i = 0;
+//     while(line) 
+//     {
+//         printf("%s\n", line);
+//         if(strstr(line, ":"))
+//         {
+//             keys = realloc(keys, (i + 1) * sizeof keys[0]);
+//             strcpy(keys[i], strtok(line, ":"));
+           
+//             values = realloc(values, (i + 1) * sizeof values[0]);
+//             strcpy(values[i], strtok(NULL, ""));
+//             printf("%s, %s\n", keys[i], values[i]);
+//             i++;
+//         }
+//         line  = strtok_r(NULL, "\n", &end);
+    
+//         printf("%s\n", line);
+//     }  
+
+//     printf("outside");
+//     char* auth_header = NULL;   
+//     for (int j = 0; j < i; j++) {
+//         if(strcmp(keys[j], "authorization") == 0)
+//         {
+//             auth_header = values[j];
+//             break;
+//         }
+//     }
+
+//     char* key_value[2][6];
+//     parse_auth_header(auth_header, key_value);
+//     for (int j = 0; j < 6; j++) {
+//         //printf("%s: %s\n", key_value[0][j], key_value[1][j]);
+//     }
+// }
+
+
 
 void dequeue() 
 {
@@ -131,17 +197,12 @@ void dequeue()
     //printf("%s\n", buf);
     char* header;
     char* body = strstr(queue[head].buf, "\r\n\r\n");
-    printf("%s\n", body);
     int length = body - buf + 1;
     header = (char*)malloc(length);
     strncpy(header, buf, length);
     //printf("HEAD: %s\n", header);
-    replay_check(body);
-    insert_document(collection,body);
-    parse(header);
-    //send_ack();
+    parse(header,body);
     parse_json(body);
-
     printf("Message is removed from the buffer.\n");
     buffer_size--;
     if(head == tail) // if queue found empty 
@@ -151,13 +212,6 @@ void dequeue()
     } 
     else
         head = (head + 1) % buffer_max_size; 
-    /*
-    * Release our handles and clean up libmongoc
-    */
-    mongoc_collection_destroy (collection);
-    mongoc_client_destroy (client);
-    mongoc_cleanup ();
-
 }
 
 void* thread_serve(void* arg) 
@@ -206,9 +260,6 @@ void handle(int s)
 
     pthread_cond_signal(&increased); // signal that tasks in buffer have increased 
     pthread_mutex_unlock(&lock);
-    char* body = strstr(queue[head].buf, "\r\n\r\n");
-    send_ack(body, s);
-    post_req(body);
-    close(s);
+
     return t.buf;
 }
