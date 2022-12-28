@@ -6,8 +6,6 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 #include <assert.h>
-#include <time.h>
-#include <curl/curl.h>
 
 #define MAXBUF (1024)
 #define DEFAULT_BUFFER_SIZE 64
@@ -19,9 +17,7 @@ extern int num_threads;
 
 void handle(int s);
 void* thread_serve(void* arg);
-//void parse(char* header);
-//void parse_auth_header(char* auth_header, char* key_value[2][6]);
-//void replay_check(char* body);
-//void send_ack(char*body, int client_fd);
+void parse(char* header,char* body);
+void parse_auth_header(char* auth_header, char* key_value[2][6]);
 
 #endif 
