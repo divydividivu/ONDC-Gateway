@@ -2,8 +2,11 @@
 #include<stdlib.h>
 #include<json-c/json.h>
 #include<string.h>
+<<<<<<< HEAD
 #include <mongoc.h>
 #include<bson.h>
+=======
+>>>>>>> main
 
 
 pthread_mutex_t lock;
@@ -79,7 +82,10 @@ void print_msg(msg_t msg){
     printf("Message: %s\n", msg.buf);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 void enqueue(msg_t t)                    //add into queue followin SFF
 {
     int temp;
@@ -121,6 +127,7 @@ void enqueue(msg_t t)                    //add into queue followin SFF
     }
 }
 
+<<<<<<< HEAD
 // void parse_auth_header(char* auth_header, char* key_value[2][6])
 // {
 //     char* pairs[6];
@@ -238,21 +245,38 @@ void dequeue()
     client =mongoc_client_new ("mongodb+srv://fyp:2ykYtCR6tQnLhbcj@cluster0.usqwuqs.mongodb.net/?retryWrites=true&w=majority");
     collection = mongoc_client_get_collection (client, "mydb", "mycoll");
 
+=======
+
+void dequeue() 
+{
+>>>>>>> main
     //print_msg(queue[head]);
     char* buf = queue[head].buf;
     //buf[strlen(buf) - 1] = '\0';
     //printf("%s\n", buf);
     char* header;
     char* body = strstr(queue[head].buf, "\r\n\r\n");
+<<<<<<< HEAD
+=======
+    printf("%s\n", body);
+>>>>>>> main
     int length = body - buf + 1;
     header = (char*)malloc(length);
     strncpy(header, buf, length);
     //printf("HEAD: %s\n", header);
+<<<<<<< HEAD
     // const char *json = "{\"name\": {\"first\":\"Grace\", \"last\":\"Hopper\"}}";
     parse(header,body);
     // retrieve_document(collection);
     insert_document(collection,body);
     parse_json(body);
+=======
+    replay_check(body);
+    parse(header);
+    //send_ack();
+    parse_json(body);
+
+>>>>>>> main
     printf("Message is removed from the buffer.\n");
     buffer_size--;
     if(head == tail) // if queue found empty 
@@ -262,6 +286,7 @@ void dequeue()
     } 
     else
         head = (head + 1) % buffer_max_size; 
+<<<<<<< HEAD
     /*
     * Release our handles and clean up libmongoc
     */
@@ -269,6 +294,8 @@ void dequeue()
     mongoc_client_destroy (client);
     mongoc_cleanup ();
 
+=======
+>>>>>>> main
 }
 
 void* thread_serve(void* arg) 
@@ -317,6 +344,12 @@ void handle(int s)
 
     pthread_cond_signal(&increased); // signal that tasks in buffer have increased 
     pthread_mutex_unlock(&lock);
+<<<<<<< HEAD
 
+=======
+    char* body = strstr(queue[head].buf, "\r\n\r\n");
+    send_ack(body, s);
+    close(s);
+>>>>>>> main
     return t.buf;
 }
