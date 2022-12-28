@@ -2,11 +2,8 @@
 #include<stdlib.h>
 #include<json-c/json.h>
 #include<string.h>
-<<<<<<< HEAD
 #include <mongoc.h>
 #include<bson.h>
-=======
->>>>>>> main
 
 
 pthread_mutex_t lock;
@@ -82,10 +79,6 @@ void print_msg(msg_t msg){
     printf("Message: %s\n", msg.buf);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 void enqueue(msg_t t)                    //add into queue followin SFF
 {
     int temp;
@@ -127,156 +120,26 @@ void enqueue(msg_t t)                    //add into queue followin SFF
     }
 }
 
-<<<<<<< HEAD
-// void parse_auth_header(char* auth_header, char* key_value[2][6])
-// {
-//     char* pairs[6];
-//     char* pair = strtok(auth_header, ",");
-//     int i = 0;
-//     while (pair != NULL)
-//     {
-//         if(pair[0] == ' ')
-//             pair++;
-//         pairs[i] = pair;
-//         pair = strtok(NULL, ",");
-//         i++;
-//     }
-//     for (int j = 0; j < 6; j++)
-//     {
-        
-//         char* key = strtok(pairs[j], "=");
-//         char* value = strtok(NULL, "=");
-//         key_value[0][j] = key;
-//         key_value[1][j] = value;
-        
-//        // printf("%s, %s\n", key, value);
-//     }
-    
-// }
-
-// void parse_headerfile(char* header)
-// {
-//     printf("Header: %s\n", header);
-//     int bufferLength = 255;
-//     char (*keys)[bufferLength] = NULL;
-//     char (*values)[bufferLength] = NULL;
-//     char *end = header;
-//     char * line = strtok_r(strdup(end), "\n", &end);
-//     int i = 0;
-//     while(line) 
-//     {
-//         printf("%s\n", line);
-//         if(strstr(line, ":"))
-//         {
-//             keys = realloc(keys, (i + 1) * sizeof keys[0]);
-//             strcpy(keys[i], strtok(line, ":"));
-           
-//             values = realloc(values, (i + 1) * sizeof values[0]);
-//             strcpy(values[i], strtok(NULL, ""));
-//             printf("%s, %s\n", keys[i], values[i]);
-//             i++;
-//         }
-//         line  = strtok_r(NULL, "\n", &end);
-    
-//         printf("%s\n", line);
-//     }  
-
-//     printf("outside");
-//     char* auth_header = NULL;   
-//     for (int j = 0; j < i; j++) {
-//         if(strcmp(keys[j], "authorization") == 0)
-//         {
-//             auth_header = values[j];
-//             break;
-//         }
-//     }
-
-//     char* key_value[2][6];
-//     parse_auth_header(auth_header, key_value);
-//     for (int j = 0; j < 6; j++) {
-//         //printf("%s: %s\n", key_value[0][j], key_value[1][j]);
-//     }
-// }
-
-void insert_document(mongoc_collection_t *collection,const char* data)
-{
-   bson_t *bson;
-   bson_error_t error;
-   bson = bson_new_from_json (data, -1, &error);
-   if(!bson)
-   {
-      fprintf (stderr, "%s\n", error.message);
-   }
-   if (!mongoc_collection_insert_one (collection, bson, NULL, NULL, &error))
-   {
-      fprintf (stderr, "%s\n", error.message);
-   }
-   printf("Insertion Successfull !");
-
-}
-
-void retrieve_document(mongoc_collection_t *collection)
-{
-    mongoc_cursor_t *cursor;
-    const bson_t *doc;
-    bson_t *query;
-    const char* str;
-    query = bson_new ();
-    BSON_APPEND_UTF8 (query, "context.message_id", "string");
-    cursor = mongoc_collection_find_with_opts (collection, query, NULL, NULL);
-    while (mongoc_cursor_next (cursor, &doc))
-    {
-      str = bson_as_canonical_extended_json (doc, NULL);
-      printf ("%s\n", str);
-      bson_free (str);
-    }
-    bson_destroy (query);
-    mongoc_cursor_destroy (cursor);
-
-}
 
 void dequeue() 
 {
-    mongoc_client_t *client;
-    mongoc_collection_t *collection;
-
-    mongoc_init ();
-
-    client =mongoc_client_new ("mongodb+srv://fyp:2ykYtCR6tQnLhbcj@cluster0.usqwuqs.mongodb.net/?retryWrites=true&w=majority");
-    collection = mongoc_client_get_collection (client, "mydb", "mycoll");
-
-=======
-
-void dequeue() 
-{
->>>>>>> main
     //print_msg(queue[head]);
     char* buf = queue[head].buf;
     //buf[strlen(buf) - 1] = '\0';
     //printf("%s\n", buf);
     char* header;
     char* body = strstr(queue[head].buf, "\r\n\r\n");
-<<<<<<< HEAD
-=======
     printf("%s\n", body);
->>>>>>> main
     int length = body - buf + 1;
     header = (char*)malloc(length);
     strncpy(header, buf, length);
     //printf("HEAD: %s\n", header);
-<<<<<<< HEAD
-    // const char *json = "{\"name\": {\"first\":\"Grace\", \"last\":\"Hopper\"}}";
-    parse(header,body);
-    // retrieve_document(collection);
-    insert_document(collection,body);
-    parse_json(body);
-=======
     replay_check(body);
+    insert_document(collection,body);
     parse(header);
     //send_ack();
     parse_json(body);
 
->>>>>>> main
     printf("Message is removed from the buffer.\n");
     buffer_size--;
     if(head == tail) // if queue found empty 
@@ -286,7 +149,6 @@ void dequeue()
     } 
     else
         head = (head + 1) % buffer_max_size; 
-<<<<<<< HEAD
     /*
     * Release our handles and clean up libmongoc
     */
@@ -294,8 +156,6 @@ void dequeue()
     mongoc_client_destroy (client);
     mongoc_cleanup ();
 
-=======
->>>>>>> main
 }
 
 void* thread_serve(void* arg) 
@@ -344,12 +204,8 @@ void handle(int s)
 
     pthread_cond_signal(&increased); // signal that tasks in buffer have increased 
     pthread_mutex_unlock(&lock);
-<<<<<<< HEAD
-
-=======
     char* body = strstr(queue[head].buf, "\r\n\r\n");
     send_ack(body, s);
     close(s);
->>>>>>> main
     return t.buf;
 }
