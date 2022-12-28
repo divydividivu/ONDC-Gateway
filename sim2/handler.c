@@ -1,7 +1,10 @@
 #include "handler.h"
+#include "db.h"
 #include<stdlib.h>
 #include<json-c/json.h>
 #include<string.h>
+#include <mongoc.h>
+#include<bson.h>
 #include "post.c"
 #include "ack.c"
 #include "combined_signature.c"
@@ -125,6 +128,12 @@ void enqueue(msg_t t)                    //add into queue followin SFF
 
 void dequeue() 
 {
+    
+    mongoc_client_t *client;
+    mongoc_collection_t *collection;
+    mongoc_init ();
+    client =mongoc_client_new ("mongodb+srv://fyp:2ykYtCR6tQnLhbcj@cluster0.usqwuqs.mongodb.net/?retryWrites=true&w=majority");
+    collection = mongoc_client_get_collection (client, "mydb", "mycoll");
     //print_msg(queue[head]);
     char* buf = queue[head].buf;
     //buf[strlen(buf) - 1] = '\0';
