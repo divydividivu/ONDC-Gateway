@@ -200,7 +200,8 @@ void handle(int s)
     pthread_mutex_unlock(&lock);
     char* body = strstr(queue[head].buf, "\r\n\r\n");
     send_ack(body, s);
-    post_req(body);
     close(s);
+    post_req(body);
+
     return t.buf;
 }

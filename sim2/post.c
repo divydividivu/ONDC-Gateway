@@ -47,7 +47,7 @@ void post_req(char* body)
                 curl_easy_setopt(curl, CURLOPT_URL, urls[i]);
                 curl_easy_setopt(curl, CURLOPT_POSTFIELDS, body);
                 curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30L);
-
+            // TODO: add headers and make dyn ttl
                 response = curl_easy_perform(curl);
                 
                 if(response!=CURLE_OK)
