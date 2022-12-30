@@ -5,7 +5,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include<bson.h>
+#include <bson.h>
+#include "db.h"
 
 char * lookup(char (*keys)[bufferLength],char (*values)[bufferLength])
 {
