@@ -2,7 +2,7 @@
 #include <curl/curl.h>
 #include <omp.h>
 #include <time.h>
-#include "db.h"
+#include "db.c"
 
 void post_req(char* body)
 {
