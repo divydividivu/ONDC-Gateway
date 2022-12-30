@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <curl/curl.h>
-#include <omp.h>
 #include <time.h>
+#include <omp.h>
 #include "db.c"
 
 int main()
@@ -34,6 +34,7 @@ int main()
     #pragma omp parallel for
     for(int i=0; i<len; i++)
     {
+        printf("\n\nThread: %d\n\n", omp_get_thread_num());
         for(int j=0; j<3; j++)
         {
             CURL *curl;
