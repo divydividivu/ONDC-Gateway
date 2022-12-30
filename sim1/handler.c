@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<json-c/json.h>
 #include<string.h>
+#include <mongoc.h>
+#include<bson.h>
 
 
 pthread_mutex_t lock;
@@ -76,6 +78,7 @@ void parse_json(char* body)
 void print_msg(msg_t msg){
     printf("Message: %s\n", msg.buf);
 }
+
 
 void enqueue(msg_t t)                    //add into queue followin SFF
 {
@@ -188,10 +191,53 @@ void enqueue(msg_t t)                    //add into queue followin SFF
 //     }
 // }
 
+void insert_document(mongoc_collection_t *collection,const char* data)
+{
+   bson_t *bson;
+   bson_error_t error;
+   bson = bson_new_from_json (data, -1, &error);
+   if(!bson)
+   {
+      fprintf (stderr, "%s\n", error.message);
+   }
+   if (!mongoc_collection_insert_one (collection, bson, NULL, NULL, &error))
+   {
+      fprintf (stderr, "%s\n", error.message);
+   }
+   printf("Insertion Successfull !");
 
+}
+
+void retrieve_document(mongoc_collection_t *collection)
+{
+    mongoc_cursor_t *cursor;
+    const bson_t *doc;
+    bson_t *query;
+    const char* str;
+    query = bson_new ();
+    BSON_APPEND_UTF8 (query, "context.message_id", "string");
+    cursor = mongoc_collection_find_with_opts (collection, query, NULL, NULL);
+    while (mongoc_cursor_next (cursor, &doc))
+    {
+      str = bson_as_canonical_extended_json (doc, NULL);
+      printf ("%s\n", str);
+      bson_free (str);
+    }
+    bson_destroy (query);
+    mongoc_cursor_destroy (cursor);
+
+}
 
 void dequeue() 
 {
+    mongoc_client_t *client;
+    mongoc_collection_t *collection;
+
+    mongoc_init ();
+
+    client =mongoc_client_new ("mongodb+srv://fyp:2ykYtCR6tQnLhbcj@cluster0.usqwuqs.mongodb.net/?retryWrites=true&w=majority");
+    collection = mongoc_client_get_collection (client, "mydb", "mycoll");
+
     //print_msg(queue[head]);
     char* buf = queue[head].buf;
     //buf[strlen(buf) - 1] = '\0';
@@ -202,7 +248,10 @@ void dequeue()
     header = (char*)malloc(length);
     strncpy(header, buf, length);
     //printf("HEAD: %s\n", header);
+    // const char *json = "{\"name\": {\"first\":\"Grace\", \"last\":\"Hopper\"}}";
     parse(header,body);
+    // retrieve_document(collection);
+    insert_document(collection,body);
     parse_json(body);
     printf("Message is removed from the buffer.\n");
     buffer_size--;
@@ -213,6 +262,13 @@ void dequeue()
     } 
     else
         head = (head + 1) % buffer_max_size; 
+    /*
+    * Release our handles and clean up libmongoc
+    */
+    mongoc_collection_destroy (collection);
+    mongoc_client_destroy (client);
+    mongoc_cleanup ();
+
 }
 
 void* thread_serve(void* arg) 
