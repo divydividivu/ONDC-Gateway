@@ -21,7 +21,7 @@ void handle(int s);
 void* thread_serve(void* arg);
 void parse(char* header);
 void parse_auth_header(char* auth_header, char* key_value[2][6]);
-void replay_check(char* body);
-void send_ack(char*body, int client_fd);
+int replay_check(char* body);
+void send_ack(char*body, int client_fd, int is_ack);
 
 #endif 

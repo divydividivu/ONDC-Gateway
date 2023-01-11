@@ -32,9 +32,8 @@ char* form_ack_msg(char* body, int is_ack)
   return ack_message;
 }
 
-void send_ack(char* body, int client_fd)
+void send_ack(char* body, int client_fd, int is_ack)
 {
-  int is_ack = 1;
 
   // Convert the JSON object to a string and allocate memory for it
 

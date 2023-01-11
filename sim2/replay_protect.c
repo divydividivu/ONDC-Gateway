@@ -3,8 +3,9 @@
 #include <time.h>
 #include <json-c/json.h>
 
-void replay_check(char* json_str)
+int replay_check(char* json_str)
 {
+    int ret_val = 0;
     json_object *json = json_tokener_parse(json_str);
     
     //TODO : check for trans id in the db (if already used or not)
@@ -34,10 +35,14 @@ void replay_check(char* json_str)
     // Check if the timestamp plus the TTL is greater than the current timestamp
     time_t now = time(NULL);
     time_t max_time = timestamp + ttl;
+    
     if (max_time > now) {
         printf("No replay attack detected.\n");
         
     } else {
         printf("Possible replay attack detected!\n");
+        ret_val = 1;
     }
+
+    return ret_val;
 }

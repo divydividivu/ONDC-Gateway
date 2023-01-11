@@ -17,6 +17,8 @@ int head = -1;
 int tail = -1;
 msg_t queue[100];
 
+int is_replay = 0;
+
 void parse_json(char* body)
 {
     struct json_object *parsed;
@@ -132,10 +134,12 @@ void dequeue()
     header = (char*)malloc(length);
     strncpy(header, buf, length);
     //printf("HEAD: %s\n", header);
-    replay_check(body);
+    //is_replay = replay_check(body);
+    if (!is_replay){
     parse(header);
     //send_ack();
     parse_json(body);
+    }
 
     printf("Message is removed from the buffer.\n");
     buffer_size--;
@@ -195,7 +199,9 @@ void handle(int s)
     pthread_cond_signal(&increased); // signal that tasks in buffer have increased 
     pthread_mutex_unlock(&lock);
     char* body = strstr(queue[head].buf, "\r\n\r\n");
-    send_ack(body, s);
+    printf("\n is_replay = %d \n", is_replay);
+    is_replay = replay_check(body);
+    send_ack(body, s, !is_replay);
     close(s);
     return t.buf;
 }

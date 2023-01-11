@@ -5,10 +5,16 @@
 #include <sys/types.h> 
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <json-c/json.h>
 #include <omp.h>
+#include "/home/divy/FYP/sim2/replay_protect.c"
+#include "/home/divy/FYP/sim2/ack.c"
 
 #define PORT 9999
 #define BUFFER_SIZE 1024
+
+// TODO: try to use same send_ack from the ack.c in sim2 (reusability of code)
+
 
 void error(char *msg)
 {
@@ -25,6 +31,10 @@ void handle_request(int client_socket)
         error("ERROR reading from socket");
     buffer[num_bytes] = '\0';
     printf("%s\n", buffer);
+
+    char* body = strstr(buffer, "\r\n\r\n");
+    int is_replay = replay_check(body);
+    send_ack(body, client_socket, !is_replay);
     
     close(client_socket);
 }
